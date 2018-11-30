@@ -3,9 +3,9 @@ import * as azure from "@pulumi/azure";
 import * as config from "./config";
 
 // Create Virtual Network
-import {vnet} from "./vnet";
+//import {vnet} from "./vnet";
 
-export const vnetID = vnet.id
+//export const vnetID = vnet.id;
 
 // Create an AKS cluster.
 import { k8sCluster, k8sProvider } from "./cluster";
