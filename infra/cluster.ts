@@ -23,6 +23,7 @@ export const k8sCluster = new azure.containerservice.KubernetesCluster("aksClust
         name: "aksagentpool",
         count: config.nodeCount,
         vmSize: config.nodeSize,
+        vnetSubnetId: vnetID
     },
     networkProfile: {
         networkPlugin: "azure",
