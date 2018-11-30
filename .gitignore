@@ -1,5 +1,6 @@
 /bin/
 /node_modules/
+/infra/node_modules/
 key.rsa
 key.rsa.pub
 Pulumi.azure-aks-infra.yaml
