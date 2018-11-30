@@ -18,13 +18,21 @@ let adSpPassword = new azure.ad.ServicePrincipalPassword("aksSpPassword", {
 // Now allocate an AKS cluster.
 export const k8sCluster = new azure.containerservice.KubernetesCluster("aksCluster", {
     resourceGroupName: config.resourceGroup.name,
+    kubernetesVersion: "1.11.4",
     location: config.location,
     agentPoolProfile: {
         name: "aksagentpool",
         count: config.nodeCount,
         vmSize: config.nodeSize,
     },
-    dnsPrefix: `${pulumi.getStack()}-kube`,
+    networkProfile: {
+        networkPlugin: "azure",
+        dnsServiceIp: "10.0.0.10",
+        dockerBridgeCidr: "172.17.0.1/16",
+        podCidr: "10.240.0.0/16",
+        serviceCidr: "10.0.0.0/16"
+    },
+    dnsPrefix: "ben-aks-pulumi",
     linuxProfile: {
         adminUsername: "aksuser",
         sshKeys: [{
