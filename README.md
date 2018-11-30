@@ -1,4 +1,4 @@
-# croc-pulumi
+# Croc-Hunter-Demo Pulumi
 
 Croc Hunter AKS Demo
 
