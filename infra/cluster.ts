@@ -45,7 +45,7 @@ export const k8sCluster = new azure.containerservice.KubernetesCluster("aksClust
 }); 
 
 // Azure ACR
-const acr = new azure.containerservice.Registry("ben-acr", {
+const acr = new azure.containerservice.Registry("benacr", {
     resourceGroupName: config.resourceGroup.name,
     location: config.location,
     adminEnabled: true,
