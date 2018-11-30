@@ -2,7 +2,6 @@
 
 import * as azure from "@pulumi/azure";
 import * as pulumi from "@pulumi/pulumi";
-import * as docker from "@pulumi/docker";
 import * as k8s from "@pulumi/kubernetes";
 import * as config from "./config";
 
