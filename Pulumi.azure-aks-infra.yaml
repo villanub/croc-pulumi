@@ -1,0 +1,6 @@
+config:
+  azure-mean:password:
+    secure: AAABAB6wlx/XZaekEowQ4QyEeDacj4MF6SZEbkgo++fW3/986kpBGdVP
+  azure-mean:sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHkRbCVp1wdRZ4GDIBsU1Bmq3j8fucyczlQTJS5Tj5pERIFdihau8bVA7nrjL0cAueoa5B/5XoMeFkpVbEqQVeA5q4c1gCL5PRx4uOPW/HV4bKjh4i6NY+bBThxAmclfSbjvUY53Eb/O45I42JhiA4T3EnOdsF21PFkZ/FBiq5G60RwA3N4s93Jx2QCwYWMg6u1BAVZBWEwe0rKcTpD1rR082Ol3KzrBJL1CtmW/uwIGrbfn7aAtl8k+AU28OFh2/v21VcUEl+PAnWeI5e3w3PH1DCF1CRiXqO6NlHzpIFd8VjiLhIKwV7xcC6U3eveST7Rqa70xxx6eGspLUF/UNv
+    benjamin@DESKTOP-6QUE852
+  azure:environment: public
