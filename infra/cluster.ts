@@ -46,30 +46,13 @@ export const k8sCluster = new azure.containerservice.KubernetesCluster("aksClust
 }); 
 
 // Azure ACR
-const location = "westus";
-const resourceGroupName = new azure.core.ResourceGroup("acrrg", { location }).name;
-const storageAccountId = new azure.storage.Account("acrstorage", {
-    resourceGroupName,
-    location,
-    accountTier: "Standard",
-    accountReplicationType: "LRS",
-}).id;
-const acr = new azure.containerservice.Registry("acr", {
-    resourceGroupName,
-    location,
-    storageAccountId,
+const acr = new azure.containerservice.Registry("ben-acr", {
+    resourceGroupName: config.resourceGroup.name,
+    location: config.location,
     adminEnabled: true,
+    sku: "Basic"
 });
-const image3 = new docker.Image("mynginx3", {
-    imageName: acr.loginServer.apply(server => `${server}/mynginx`),
-    build: "./mynginx",
-    registry: {
-        server: acr.loginServer,
-        username: acr.adminUsername,
-        password: acr.adminPassword,
-    },
-});
-export const acrImage = image3.imageName;
+
 // Expose a K8s provider instance using our custom cluster instance.
 export const k8sProvider = new k8s.Provider("aksK8s", {
     kubeconfig: k8sCluster.kubeConfigRaw,
