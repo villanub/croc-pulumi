@@ -4,6 +4,7 @@ import * as azure from "@pulumi/azure";
 import * as pulumi from "@pulumi/pulumi";
 import * as k8s from "@pulumi/kubernetes";
 import * as config from "./config";
+import * as vnet from "./vnet";
 
 // Create the AD service principal for the K8s cluster.
 let adApp = new azure.ad.Application("aks");
@@ -23,7 +24,7 @@ export const k8sCluster = new azure.containerservice.KubernetesCluster("aksClust
         name: "aksagentpool",
         count: config.nodeCount,
         vmSize: config.nodeSize,
-        vnetSubnetId: vnetID
+        vnetSubnetId: vnet.vnet.id
     },
     networkProfile: {
         networkPlugin: "azure",
