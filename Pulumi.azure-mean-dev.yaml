@@ -1,7 +1,0 @@
-config:
-  azure-mean:password:
-    secure: AAABAH88k5sYdRpycf+4ZjDKSoZBhDXbb1uD58W0LwLbgdFBvW435f+1
-  azure-mean:sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDO9v39Oqfd7OAIXHzv5c7vqrmLmYDVSQo99tmJhFvaYix2AZKg7ER/ztzZwgSJeRUOGntoqGlCgW4Ht7+kXTJQY1mnq0d9OUzjIOjq9xgKS+R4FobAL8+weRlPTrh8cl3Jff8/qUWSaQSzKwrQNxDjUmNu+5Tqbpll1+sGwfJbz3nemlV53rh6lAK3JCDTof/atZHBa8U2XnfbU0MqTG6cHbevqxSd7MSHlNdEigoIRwcR2cjdx3aFxh+pHtQYpCQcgsOWbTk7yPy/VViWpLMCM9yPBKjGHeS4m0Ut1mZkhDAiBVv6Twpp4V2n9Y0gY917PspD94aOZd4ZqVrJy6M1
-    villanub@DESKTOP-6QUE852
-  azure:environment: public
-  pulumi:template: https://github.com/pulumi/examples/tree/master/azure-ts-aks-mean
