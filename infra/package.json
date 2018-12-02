@@ -1,14 +1,20 @@
 {
-    "name": "exposed-deployment",
-    "devDependencies": {
-        "@types/node": "latest"
+    "name": "aci-linux-multi",
+    "version": "0.0.1",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/azure": "latest",
-        "@pulumi/docker": "latest",
-        "@pulumi/kubernetes": "v0.17.0-rc1",
-        "@pulumi/pulumi": "latest",
-        "@types/mongoose": "^5.2.11",
-        "mongoose": "^5.2.13"
-    }
+        "@pulumi/pulumi": "dev"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.26",
+        "typescript": "^3.0.3"
+    },
+    "peerDependencies": {
+        "@pulumi/azure": "latest"
+    },
+    "license": "Apache 2.0"
 }

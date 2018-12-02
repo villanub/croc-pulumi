@@ -1,17 +1,44 @@
-import * as k8s from "@pulumi/kubernetes";
+
 import * as azure from "@pulumi/azure";
-import * as config from "./config";
+import * as pulumi from "@pulumi/pulumi";
 
-// Create Virtual Network
-//import {vnet} from "./vnet";
+const config = new pulumi.Config("aks");
+const sshPublicKey = config.require("sshPublicKey");
+const clientId = config.require("clientId");
+const clientSecret = config.require("clientSecret");
 
-//export const vnetID = vnet.id;
+const resourceGroup = new azure.core.ResourceGroup("ben-aks", {
+    location: "West US",
+});
 
-// Create an AKS cluster.
-import { k8sCluster, k8sProvider } from "./cluster";
+const kubernetesService = new azure.containerservice.KubernetesCluster("ben-kubernetes", {
+    resourceGroupName: resourceGroup.name,
+    kubernetesVersion: "1.11.4",
+    location: resourceGroup.location,
+    agentPoolProfile: {
+        name: "agentpool",
+        count: 2,
+        vmSize: "Standard_B2ms",
+    },
+    dnsPrefix: `${pulumi.getStack()}-kubernetes`,
+    linuxProfile: {
+        adminUsername: "azureuser",
+        sshKeys: [{
+            keyData: sshPublicKey,
+        }],
+    },
+    servicePrincipal: {
+        clientId: clientId,
+        clientSecret: clientSecret,
+    },
+}); 
 
-// Export kubeconfig file, cluster name, and public IP address for Kubernetes application. These can
-// be accessed from the CLI, like: `pulumi stack output kubeconfig > kubeconfig.yaml`.
-export const kubeconfig = k8sCluster.kubeConfig;
-export const cluster = k8sCluster.name;
+// Azure ACR
+const acr = new azure.containerservice.Registry("benacr", {
+    resourceGroupName: resourceGroup.name,
+    location: "West US",
+    adminEnabled: true,
+    sku: "Basic"
+});
 
+export const kubeConfigRaw = kubernetesService.kubeConfigRaw;
