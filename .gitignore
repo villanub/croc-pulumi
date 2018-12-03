@@ -3,4 +3,4 @@
 /infra/node_modules/
 key.rsa
 key.rsa.pub
-Pulumi.ben-aks-dev.yaml
+/infra/Pulumi.ben-aks-dev.yaml
