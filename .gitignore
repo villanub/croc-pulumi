@@ -3,6 +3,4 @@
 /infra/node_modules/
 key.rsa
 key.rsa.pub
-Pulumi.azure-aks-infra.yaml
-Pulumi.azure-mean-dev.yaml
 Pulumi.ben-aks-dev.yaml
