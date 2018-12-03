@@ -11,6 +11,7 @@ const resourceGroup = new azure.core.ResourceGroup("ben-aks", {
     location: "West US",
 });
 
+//Create Kubernetes Cluster
 const kubernetesService = new azure.containerservice.KubernetesCluster("ben-kubernetes", {
     resourceGroupName: resourceGroup.name,
     kubernetesVersion: "1.11.4",
